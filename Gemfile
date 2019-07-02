@@ -65,6 +65,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-
+# Solidus
 gem 'solidus'
 gem 'solidus_auth_devise'
+
+# Storage
+gem 'aws-sdk', '< 3.0'
+gem 'fog-aws'
+gem 'dotenv-rails', groups: [:development, :test]
