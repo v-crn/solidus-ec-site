@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_060349) do
+ActiveRecord::Schema.define(version: 2019_07_12_063748) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -1170,6 +1170,27 @@ ActiveRecord::Schema.define(version: 2019_07_01_060349) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id", "payment_source_id", "payment_source_type"], name: "index_spree_wallet_payment_sources_on_source_and_user", unique: true
     t.index ["user_id"], name: "index_spree_wallet_payment_sources_on_user_id"
+  end
+
+  create_table "spree_wished_products", force: :cascade do |t|
+    t.integer "variant_id"
+    t.integer "wishlist_id"
+    t.text "remark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quantity", default: 1, null: false
+  end
+
+  create_table "spree_wishlists", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.string "access_hash"
+    t.boolean "is_private", default: true, null: false
+    t.boolean "is_default", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "is_default"], name: "index_spree_wishlists_on_user_id_and_is_default"
+    t.index ["user_id"], name: "index_spree_wishlists_on_user_id"
   end
 
   create_table "spree_zone_members", force: :cascade do |t|

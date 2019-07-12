@@ -73,3 +73,7 @@ gem 'solidus_auth_devise'
 gem 'aws-sdk', '< 3.0'
 gem 'fog-aws'
 gem 'dotenv-rails', groups: [:development, :test]
+
+# Wishlist
+gem 'solidus_wishlist', github: 'boomerdigital/solidus_wishlist', branch: 'master'
+gem 'solidus_email_to_friend', github: 'boomerdigital/solidus_email_to_friend', branch: 'master'
